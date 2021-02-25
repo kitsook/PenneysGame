@@ -7,7 +7,7 @@ Verifying the result of [Penney's Game](https://en.wikipedia.org/wiki/Penney%27s
 
 ### Dependencies
 
-* Java 11 runtime and Gradle
+* Java 11 runtime
 
 ### Executing the program
 

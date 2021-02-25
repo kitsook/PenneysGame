@@ -9,9 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class CoinFlipTests {
 
     @Test
-	void flipCoinFor100Times() {
+    void flipCoinFor100Times() {
         CoinFlip.flips().limit(100).forEach(r -> {
             assertTrue(r == CoinFlip.Result.H || r == CoinFlip.Result.T);
         });
-	}
+    }
 }

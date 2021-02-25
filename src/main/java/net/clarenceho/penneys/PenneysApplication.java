@@ -14,8 +14,8 @@ import net.clarenceho.penneys.model.PenneysGame.Choice;
 @SpringBootApplication
 public class PenneysApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PenneysApplication.class, args);
+    public static void main(String[] args) {
+        SpringApplication.run(PenneysApplication.class, args);
 
         // test out all scenarios list in wiki in which player 2 should have advantage
         System.out.println("Testing out cases shown in wiki where player 2 has higher chance of winning:");
