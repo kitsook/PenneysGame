@@ -79,12 +79,12 @@ public class PenneysGame {
     public static List<Choice> allPossibleChoices = new ArrayList<>();
     static {
         allPossibleChoices.add(new Choice(CoinFlip.Result.H, CoinFlip.Result.H, CoinFlip.Result.H));
-        allPossibleChoices.add(new Choice(CoinFlip.Result.T, CoinFlip.Result.H, CoinFlip.Result.H));
-        allPossibleChoices.add(new Choice(CoinFlip.Result.H, CoinFlip.Result.T, CoinFlip.Result.H));
-        allPossibleChoices.add(new Choice(CoinFlip.Result.T, CoinFlip.Result.T, CoinFlip.Result.H));
         allPossibleChoices.add(new Choice(CoinFlip.Result.H, CoinFlip.Result.H, CoinFlip.Result.T));
-        allPossibleChoices.add(new Choice(CoinFlip.Result.T, CoinFlip.Result.H, CoinFlip.Result.T));
+        allPossibleChoices.add(new Choice(CoinFlip.Result.H, CoinFlip.Result.T, CoinFlip.Result.H));
         allPossibleChoices.add(new Choice(CoinFlip.Result.H, CoinFlip.Result.T, CoinFlip.Result.T));
+        allPossibleChoices.add(new Choice(CoinFlip.Result.T, CoinFlip.Result.H, CoinFlip.Result.H));
+        allPossibleChoices.add(new Choice(CoinFlip.Result.T, CoinFlip.Result.H, CoinFlip.Result.T));
+        allPossibleChoices.add(new Choice(CoinFlip.Result.T, CoinFlip.Result.T, CoinFlip.Result.H));
         allPossibleChoices.add(new Choice(CoinFlip.Result.T, CoinFlip.Result.T, CoinFlip.Result.T));
     }
 
@@ -107,29 +107,29 @@ public class PenneysGame {
         +----------------------+----------------------+------------------------------+
         */
         beatenByWiki.put(
+            new Choice(CoinFlip.Result.H, CoinFlip.Result.H, CoinFlip.Result.H),
+            new Choice(CoinFlip.Result.T, CoinFlip.Result.H, CoinFlip.Result.H));
+        beatenByWiki.put(
+            new Choice(CoinFlip.Result.H, CoinFlip.Result.H, CoinFlip.Result.T),
+            new Choice(CoinFlip.Result.T, CoinFlip.Result.H, CoinFlip.Result.H));
+        beatenByWiki.put(
+            new Choice(CoinFlip.Result.H, CoinFlip.Result.T, CoinFlip.Result.H),
+            new Choice(CoinFlip.Result.H, CoinFlip.Result.H, CoinFlip.Result.T));
+        beatenByWiki.put(
+            new Choice(CoinFlip.Result.H, CoinFlip.Result.T, CoinFlip.Result.T),
+            new Choice(CoinFlip.Result.H, CoinFlip.Result.H, CoinFlip.Result.T));
+        beatenByWiki.put(
+            new Choice(CoinFlip.Result.T, CoinFlip.Result.H, CoinFlip.Result.H),
+            new Choice(CoinFlip.Result.T, CoinFlip.Result.T, CoinFlip.Result.H));
+        beatenByWiki.put(
             new Choice(CoinFlip.Result.T, CoinFlip.Result.H, CoinFlip.Result.T),
             new Choice(CoinFlip.Result.T, CoinFlip.Result.T, CoinFlip.Result.H));
         beatenByWiki.put(
             new Choice(CoinFlip.Result.T, CoinFlip.Result.T, CoinFlip.Result.H),
             new Choice(CoinFlip.Result.H, CoinFlip.Result.T, CoinFlip.Result.T));
         beatenByWiki.put(
-            new Choice(CoinFlip.Result.H, CoinFlip.Result.T, CoinFlip.Result.T),
-            new Choice(CoinFlip.Result.H, CoinFlip.Result.H, CoinFlip.Result.T));
-        beatenByWiki.put(
-            new Choice(CoinFlip.Result.H, CoinFlip.Result.H, CoinFlip.Result.T),
-            new Choice(CoinFlip.Result.T, CoinFlip.Result.H, CoinFlip.Result.H));
-        beatenByWiki.put(
-            new Choice(CoinFlip.Result.T, CoinFlip.Result.H, CoinFlip.Result.H),
-            new Choice(CoinFlip.Result.T, CoinFlip.Result.T, CoinFlip.Result.H));
-        beatenByWiki.put(
             new Choice(CoinFlip.Result.T, CoinFlip.Result.T, CoinFlip.Result.T),
             new Choice(CoinFlip.Result.H, CoinFlip.Result.T, CoinFlip.Result.T));
-        beatenByWiki.put(
-            new Choice(CoinFlip.Result.H, CoinFlip.Result.T, CoinFlip.Result.H),
-            new Choice(CoinFlip.Result.H, CoinFlip.Result.H, CoinFlip.Result.T));
-        beatenByWiki.put(
-            new Choice(CoinFlip.Result.H, CoinFlip.Result.H, CoinFlip.Result.H),
-            new Choice(CoinFlip.Result.T, CoinFlip.Result.H, CoinFlip.Result.H));
     }
 
     private static Map<Choice, Choice> beatenBy = new HashMap<>();

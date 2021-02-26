@@ -19,7 +19,7 @@ public class PenneysApplication implements CommandLineRunner {
 
         // test out all scenarios list in wiki in which player 2 should have advantage
         System.out.println("Testing out cases shown in wiki where player 2 has higher chance of winning:");
-        PenneysGame.allPossibleChoices.stream().forEach(firstPlayer -> {
+        PenneysGame.allPossibleChoices.parallelStream().forEach(firstPlayer -> {
 
             Choice secondPlayer = PenneysGame.bestChoiceToBetAgainst(firstPlayer);
 
@@ -38,7 +38,7 @@ public class PenneysApplication implements CommandLineRunner {
         });
 
         System.out.println("Loop all combinations to find best choice:");
-        for (Choice c1 : PenneysGame.allPossibleChoices) {
+        PenneysGame.allPossibleChoices.parallelStream().forEach(c1 -> {
             Map<Choice, Integer> result = new HashMap<>();
             for (Choice c2 : PenneysGame.allPossibleChoices) {
                 if (c1 == c2) {
@@ -60,7 +60,7 @@ public class PenneysApplication implements CommandLineRunner {
             Stream<Map.Entry<Choice, Integer>> sorted = result.entrySet().stream().sorted(Map.Entry.comparingByValue());
             Choice best = sorted.skip(result.size()-1).findFirst().get().getKey();
             System.err.println(String.format("Best choice against %s is %s", c1, best));
-        }
+        });
     }
 
     @Override
