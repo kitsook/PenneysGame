@@ -3,7 +3,6 @@ package net.clarenceho.penneys.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.HashMap;
 
 import lombok.EqualsAndHashCode;
@@ -31,23 +30,22 @@ public class PenneysGame {
      */
     public boolean doesSecondPlayerWin() {
 
-        AtomicReference<StringBuilder> latestThree = new AtomicReference<>();
-        latestThree.set(new StringBuilder());
+        StringBuilder latestThree = new StringBuilder();
 
         CoinFlip.flips()
             .takeWhile(r ->
-                !firstPlayer.rawString().equals(latestThree.get().toString()) &&
-                !secondPlayer.rawString().equals(latestThree.get().toString())
+                !firstPlayer.rawString().equals(latestThree.toString()) &&
+                !secondPlayer.rawString().equals(latestThree.toString())
             )
             .forEach(r -> {
-                if (latestThree.get().length() < 3) {
-                    latestThree.get().append(r.toString());
+                if (latestThree.length() < 3) {
+                    latestThree.append(r.toString());
                 } else {
-                    latestThree.get().append(r.toString()).delete(0, 1);
+                    latestThree.append(r.toString()).delete(0, 1);
                 }
             });
 
-        return secondPlayer.rawString().equals(latestThree.get().toString());
+        return secondPlayer.rawString().equals(latestThree.toString());
     }
 
     @Getter @EqualsAndHashCode
