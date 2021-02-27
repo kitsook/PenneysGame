@@ -23,7 +23,7 @@ public class CoinFlipTests {
         AtomicInteger tailCount = new AtomicInteger(0);
         int totalCount = 100000;
 
-        CoinFlip.flips().limit(totalCount).forEach(r -> {
+        CoinFlip.flips().parallel().limit(totalCount).forEach(r -> {
             if (r == CoinFlip.Result.H) {
                 headCount.incrementAndGet();
             } else if (r == CoinFlip.Result.T) {

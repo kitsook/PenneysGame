@@ -35,8 +35,7 @@ public class PenneysGame {
         CoinFlip.flips()
             .takeWhile(r ->
                 !firstPlayer.rawString().equals(latestThree.toString()) &&
-                !secondPlayer.rawString().equals(latestThree.toString())
-            )
+                !secondPlayer.rawString().equals(latestThree.toString()))
             .forEach(r -> {
                 if (latestThree.length() < 3) {
                     latestThree.append(r.toString());

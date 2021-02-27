@@ -7,10 +7,11 @@ Verifying the result of [Penney's Game](https://en.wikipedia.org/wiki/Penney%27s
 
 ### Dependencies
 
-* Java 11 runtime
+* Java 11 SDK
+* Gradle
 
 ### Executing the program
 
 ```
-./gradlew bootRun
+./gradlew build && java -jar build/libs/penneys-0.0.1-SNAPSHOT.jar
 ```
