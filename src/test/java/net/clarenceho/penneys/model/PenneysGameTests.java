@@ -21,10 +21,7 @@ public class PenneysGameTests {
     @Test
     void testChoiceEquals() {
         Choice c1 = new Choice(CoinFlip.Result.H, CoinFlip.Result.T, CoinFlip.Result.H);
-        Choice c2 = new Choice();
-        c2.setFirst(CoinFlip.Result.H);
-        c2.setSecond(CoinFlip.Result.T);
-        c2.setThird(CoinFlip.Result.H);
+        Choice c2 = new Choice(CoinFlip.Result.H, CoinFlip.Result.T, CoinFlip.Result.H);
         assertEquals(c1, c2);
     }
 }

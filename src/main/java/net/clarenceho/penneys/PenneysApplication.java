@@ -2,7 +2,8 @@ package net.clarenceho.penneys;
 
 import java.util.Map;
 import java.util.HashMap;
-import java.util.stream.Stream;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -39,27 +40,30 @@ public class PenneysApplication implements CommandLineRunner {
 
         System.out.println("Loop all combinations to find best choice:");
         PenneysGame.allPossibleChoices.parallelStream().forEach(c1 -> {
-            Map<Choice, Integer> result = new HashMap<>();
+            Map<Choice, Integer> results = new HashMap<>();
             for (Choice c2 : PenneysGame.allPossibleChoices) {
                 if (c1 == c2) {
+                    // player 2 can't pick the same pattern as player 1
                     continue;
                 }
-                int c2WinCount = 0;
 
+                int c2WinCount = 0;
                 for (int i = 0; i < 1000000; i++) {
                     PenneysGame game = new PenneysGame(c1, c2);
                     if (game.doesSecondPlayerWin()) {
                         c2WinCount += 1;
                     }
                 }
-
-                result.put(c2, c2WinCount);
+                results.put(c2, c2WinCount);
             }
 
             // sort the result and see which pattern is the best against c1
-            Stream<Map.Entry<Choice, Integer>> sorted = result.entrySet().stream().sorted(Map.Entry.comparingByValue());
-            Choice best = sorted.skip(result.size()-1).findFirst().get().getKey();
-            System.err.println(String.format("Best choice against %s is %s", c1, best));
+            List<Map.Entry<Choice, Integer>> sorted = results.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toList());
+            Choice bestChoice = sorted.get(sorted.size()-1).getKey();
+            System.err.println(String.format("Best choice against %s is %s", c1, bestChoice));
         });
     }
 
